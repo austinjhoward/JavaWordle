@@ -5,3 +5,5 @@ This game is gonna be fun.
 
 Wordle consists on guessing a word.
 
+Teammate 1 part.
+
