@@ -119,8 +119,9 @@ public class Driver
        L34.setBorder(border);
        newPanel.add(L34);
        frame.add(newPanel);
-       frame.add(new JSeparator(), BorderLayout.CENTER);
-
+       
+       /**
+        * 
        Font font1 = new Font("Arial", Font.BOLD, 40);
        JTextField textField = new JTextField("Enter a five letter word");
        textField.setSize(200, 60);
@@ -128,6 +129,8 @@ public class Driver
        textField.setLocation(50,700);
        frame.add(textField);
        frame.setVisible(true);
+       */
+      frame.setVisible(true);
 
 
 
