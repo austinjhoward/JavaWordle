@@ -1,6 +1,6 @@
-/** 
- * My first Java program
- */
+
+//User interface prototype for wordle
+
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Color;
@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.*; 
 
 public class Driver
 {
@@ -137,17 +138,30 @@ public class Driver
       L34.setBorder(border);
       gridPanel.add(L34);
       frame.add(gridPanel);
+      
+      //This part of the code creates a new panel that will contain
+      //a text box and an enter button
 
-      Font font2 = new Font("Arial", Font.BOLD, 40);
-      JPanel textPanel = new JPanel();
+      Font font2 = new Font("Arial", Font.BOLD, 38);
+      JPanel textButtonPanel = new JPanel();
+      
+      //Creating the text box
+      
       JTextField textField = new JTextField("Enter a five letter word");
-      textField.setSize(200, 60);
       textField.setFont(font2);
-      textField.setLocation(50,700);
-      textPanel.add(textField);
+      textButtonPanel.add(textField);
+      
+      //Creating the enter button
+      
+      JButton enterButton = new JButton("Enter");
+      enterButton.setFont(font2);
+      textButtonPanel.add(enterButton);
+      
+      //Adding both panels to the master panel, positioning them and
+      //making them visible
       
       masterPanel.add(gridPanel, BorderLayout.CENTER);
-      masterPanel.add(textField, BorderLayout.PAGE_END);
+      masterPanel.add(textButtonPanel, BorderLayout.SOUTH);
       frame.add(masterPanel);
       frame.setVisible(true);
    }
