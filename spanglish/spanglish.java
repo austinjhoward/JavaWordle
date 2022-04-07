@@ -6,13 +6,13 @@ main {
 
 //Controller
 
-array[0 -> gris, 1 -> amarillo, 2 -> verde]
+array[0 -> gray, 1 -> yellow, 2 -> green]
 
 public WordleController(Integer dificulty) {
-    //Fase 0
+    //phase 0
     //roundNumber = 0
     //maxRounds = dificulty
-    //Llamamos a DictionaryLoader -> List<String>
+    //Call DictionaryLoader -> List<String>
     //With that list, we create WordList (constructor)
     //call getWordRandomly -> String
     //With that string we create HiddenWord
@@ -27,23 +27,23 @@ public WordleController(Integer dificulty) {
 public Integer play(String word) {
     Integer[] positions;
 
-     //Fase N (cuando user envia palabra)
-     //1- Comprobar que la palabra exista
+     //phase N (when the user sends the word)
+     //1- check that the word exists
      
      if(exists(word)){
-        //Pasar a fase siguiente
+        //move to next phase
         currentPositions = HiddenWord.checkPositions(word);
     } else {
         return null;
         }
         
-        //Comprobar si las 'positions' tienen TODO 1
+        //Check if positions have all 1
         if(hasWon()) {
             return 1;
         } else if(hasLost()){
             return 2;
             }else {
-            //Incrementar roundNumber
+            //Increase roundNumber
             return 0;
             }
 }
@@ -52,27 +52,27 @@ public Integer play(String word) {
 
 //GUI
 
-Controller c = new Controller(dificultad);
+Controller c = new Controller(dificulty);
 //setColors()
 if(array[y] == 0) {
     grid[x][y] = Color.GREY;
 } else if(array[y] == 1) {
     
 }
-//En el Action del button
-//método PLAY
-//Controlar que el usuario ha escrito palabra de JUSTO 5 letras
-//Llamamos a Controller.play, y en funcion de la respuesta:
-//Si devuelve 0 -> getPositions()
-//Si devuelve 1 ->Popup de GANÉ -> ShowPopUp("Has ganado")
-//Si devuelve 2 -> popup de DESASTRE, y getHiddenWord() -> 
-        //showPopUp("Has perdido " + Controller.getHiddenWord())
+//On the Action of button
+//method PLAY
+//Check that the user has only put 5 letters
+//call Controller.play:
+//If it returns 0 -> getPositions()
+//If it returns ->Popup WIN -> ShowPopUp("You won")
+//If it returns -> popup de LOST, and getHiddenWord() -> 
+        //showPopUp("you've lost " + Controller.getHiddenWord())
 
-//Mostrar POPUP (String msg)
-JDialog ..... //Devolver a menu????
-//Deshabilitar ENTER
+//Show POPUP (String msg)
+JDialog ..... //Return to menu????
+//Turn off ENTER
 
-//Fase 2.0 -> llamar a Controller.save
+//Phase 2.0 -> call Controller.save
 
 
 
