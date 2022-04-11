@@ -9,7 +9,7 @@ public class WordList
 
     public WordList(ArrayList<String> words) 
     {
-        System.out.println("WordList method used");
+        System.out.println("WordList instantiated");
     }
 
     public String getWordRandomly()
