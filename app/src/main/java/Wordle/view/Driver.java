@@ -1,4 +1,5 @@
 //User interface prototype for wordle
+package Wordle.view;
 
 import java.awt.BorderLayout;
 import java.awt.Font;

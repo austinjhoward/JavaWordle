@@ -1,5 +1,7 @@
 package Wordle.view;
 
-public class WordleUserInterface {
-    
+interface WordleUserInterface {
+
+    void setColors(int position);
+
 }
