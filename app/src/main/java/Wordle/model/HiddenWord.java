@@ -22,7 +22,7 @@ public class HiddenWord
     }
 
     // Returns the hidden word
-    String getHiddenWord()
+    public String getHiddenWord()
     {
         System.out.println("getHiddenWord called");
         return this.hiddenWord;
