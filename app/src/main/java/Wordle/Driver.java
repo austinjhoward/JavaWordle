@@ -1,5 +1,7 @@
 //User interface prototype for wordle
-package Wordle.view;
+package Wordle;
+
+import Wordle.view.WordleGUI;
 
 public class Driver {
 
