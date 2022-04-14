@@ -1,30 +1,36 @@
 package Wordle.controller;
+
 import Wordle.model.*;
 
 class WordleController {
-    int roundNumber;
+    int roundNumber = 0;
     int[] currentPositions;
     int maxRounds;
+    protected DictionaryLoader dictionary;
+    protected WordList wordList;
+    protected HiddenWord hiddenWord;
+    protected Game game;
 
-    public WordleController(int maxRounds) {
-
-        System.out.println("Wordle constructor");
+    public WordleController(int maxRounds, DictionaryLoader dictionary, WordList wordList, HiddenWord hiddenWord,Game game) {
+        this.maxRounds = maxRounds;
+        this.dictionary = dictionary;
+        this.wordList = wordList;
+        this.hiddenWord = hiddenWord;
+        this.game = game;
+        System.out.println("WordleController constructor");
     }
 
-    public int play(String wordToGuess) {
-        System.out.println("This starts the game with the word to be guessed");
-        return 0;
+    public void onPlay() {
+        System.out.println("This starts the game, controlling the entire flow, grabbing the word from wordList, etc.");
     }
 
-    public String getHiddenWord(HiddenWord word) { //Duplicate method from the HiddenWord class
-        return word.getHiddenWord();
+    public void onChangeText() {
+        System.out.println("Func that enables us to check if user put in a five letter word");
     }
 
-    public Boolean doesExist(String word, HiddenWord hidWord){
-        if (word == hidWord.getHiddenWord()) {
-            return true;
-        }
-        return false;
+    public void onEnter() {
+        System.out.println("Func that submits the word when user hits enter, then changes the blocks colors to give appropriate answer");
     }
+
 
 }
