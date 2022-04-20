@@ -38,8 +38,8 @@ public class WordleController {
     public void onEnter() {
         ArrayList<Integer> positions;
         String word = ui.getText();
-        Boolean yesOrNo = wordList.existsInList(word);
-        if (yesOrNo) {
+        Boolean wordExists = wordList.existsInList(word);
+        if (wordExists) {
             roundNumber++;
             positions = hiddenWord.checkPositions(word);
             ui.setColors(positions, roundNumber);
