@@ -17,6 +17,31 @@ public class Driver {
          WordList wordList = new WordList(dictionary.loadDictionary("Dictionary.csv"));
          WordleGUI gui = new WordleGUI();
          WordleController controller = new WordleController(dictionary, wordList, gui);
+         MainMenuGUI mainMen = new MainMenuGUI();
+
+         mainMen.setEasy(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               mainMen.disposeFrame();
+               controller.onEasy();
+               gui.setWordleVisible();
+            }
+         });
+
+         mainMen.setMedium(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               mainMen.disposeFrame();
+               controller.onMedium();
+               gui.setWordleVisible();
+            }
+         });
+
+         mainMen.setHard(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               mainMen.disposeFrame();
+               controller.onHard();
+               gui.setWordleVisible();
+            }
+         });
 
          gui.setEnter(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -27,24 +52,6 @@ public class Driver {
          gui.setOnChangeText(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                controller.onChangeText();
-            }
-         });
-
-         gui.setEasy(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-               controller.onEasy();
-            }
-         });
-
-         gui.setMedium(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-               controller.onMedium();
-            }
-         });
-
-         gui.setHard(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-               controller.onHard();
             }
          });
       } catch (IOException e) {

@@ -100,7 +100,6 @@ public class WordleGUI implements WordleUserInterface {
         masterPanel.add(gridPanel, BorderLayout.CENTER);
         masterPanel.add(textButtonPanel, BorderLayout.SOUTH);
         frame.add(masterPanel);
-        frame.setVisible(true);
     }
 
     public String getText() {
@@ -124,16 +123,8 @@ public class WordleGUI implements WordleUserInterface {
         System.out.println("Our setOnChangeText button");
     }
 
-    public void setEasy(ActionListener l) {
-        System.out.println("Our play button");
+    public void setWordleVisible()
+    {
+        frame.setVisible(true);
     }
-
-    public void setMedium(ActionListener l) {
-        System.out.println("Our play button");
-    }
-
-    public void setHard(ActionListener l) {
-        System.out.println("Our play button");
-    }
-
 }
