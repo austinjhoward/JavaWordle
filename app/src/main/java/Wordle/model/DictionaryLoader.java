@@ -18,7 +18,7 @@ public class DictionaryLoader
     {
         words = new ArrayList<String>();
 
-        BufferedReader br = new BufferedReader(new FileReader("Dictionary.txt"));
+        BufferedReader br = new BufferedReader(new FileReader(pathFile));
         String line;
         while ( (line = br.readLine()) != null)
         {

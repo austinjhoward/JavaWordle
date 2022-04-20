@@ -14,7 +14,7 @@ public class Driver {
       DictionaryLoader dictionary = new DictionaryLoader();
 
       try {
-         WordList wordList = new WordList(dictionary.loadDictionary("Dictionary.txt"));
+         WordList wordList = new WordList(dictionary.loadDictionary("Dictionary.csv"));
          WordleGUI gui = new WordleGUI();
          WordleController controller = new WordleController(dictionary, wordList, gui);
 
