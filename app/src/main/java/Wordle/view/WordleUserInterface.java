@@ -1,7 +1,9 @@
 package Wordle.view;
+import java.util.ArrayList;
+import java.lang.Integer;
 
 interface WordleUserInterface {
 
-    void setColors(int position);
+    void setColors(ArrayList<Integer> positions, int roundNumber);
 
 }

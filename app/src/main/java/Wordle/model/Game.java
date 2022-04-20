@@ -8,6 +8,10 @@ public class Game
     private ArrayList<Integer> currentPositions = new ArrayList<Integer>();
     private int maxRounds;
 
+    public Game(int maxRounds) {
+        this.maxRounds = maxRounds;
+    }
+
     public Boolean hasWon()
     {
         System.out.println("hasWon method called");

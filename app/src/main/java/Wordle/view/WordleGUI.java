@@ -13,18 +13,29 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.*;
+import java.util.ArrayList;
+import java.lang.Integer;
 
 
 public class WordleGUI implements WordleUserInterface {
-    public WordleGUI() {
-        JPanel[][] panels = new JPanel[6][5];
-        JLabel[][] labels = new JLabel[6][5];
+
+    private JFrame frame;
+    private JPanel masterPanel;
+    private JPanel gridPanel;
+    private JButton enterButton;
+    private JTextField textField;
+    private JPanel[][] panels = new JPanel[6][5];
+    private JLabel[][] labels = new JLabel[6][5];
   
-        JFrame frame = new JFrame("Wordle");
+
+
+    public WordleGUI() {
+        
+        frame = new JFrame("Wordle");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 800);
-        JPanel masterPanel = new JPanel(new BorderLayout());
-        JPanel gridPanel = new JPanel();
+        masterPanel = new JPanel(new BorderLayout());
+        gridPanel = new JPanel();
         gridPanel.setLayout(new GridLayout(6, 5, 2, 2));
         Border border = LineBorder.createGrayLineBorder();
         Font font1 = new Font("Arial", Font.BOLD, 80);
@@ -73,13 +84,13 @@ public class WordleGUI implements WordleUserInterface {
   
         // Creating the text box
   
-        JTextField textField = new JTextField("Enter a five letter word");
+        textField = new JTextField("Enter a five letter word");
         textField.setFont(font2);
         textButtonPanel.add(textField);
   
         // Creating the enter button
   
-        JButton enterButton = new JButton("Enter");
+        enterButton = new JButton("Enter");
         enterButton.setFont(font2);
         textButtonPanel.add(enterButton);
   
@@ -92,7 +103,12 @@ public class WordleGUI implements WordleUserInterface {
         frame.setVisible(true);
     }
 
-    public void setColors(int pos){
+    public String getText() {
+        return this.textField.getText();
+    }
+
+    public void setColors(ArrayList<Integer> positions, int roundNumber){
+        //Takes the round number, uses it for the row #, then sets the colors appropriately
         System.out.println("this method sets the colors of the block");
     }
 
@@ -101,15 +117,23 @@ public class WordleGUI implements WordleUserInterface {
     }
 
     public void setEnter(ActionListener l) {
-        System.out.println("This function attaches some operations to the enter button");
-
+        enterButton.addActionListener(l);
     }
 
     public void setOnChangeText(ActionListener l) {
         System.out.println("Our setOnChangeText button");
     }
 
-    public void setPlay(ActionListener l) {
+    public void setEasy(ActionListener l) {
         System.out.println("Our play button");
     }
+
+    public void setMedium(ActionListener l) {
+        System.out.println("Our play button");
+    }
+
+    public void setHard(ActionListener l) {
+        System.out.println("Our play button");
+    }
+
 }

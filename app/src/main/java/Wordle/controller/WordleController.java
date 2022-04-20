@@ -1,26 +1,33 @@
 package Wordle.controller;
 
 import Wordle.model.*;
+import Wordle.view.*;
+import java.util.ArrayList;
+import java.lang.Integer;
 
-class WordleController {
+public class WordleController {
     int roundNumber = 0;
     int[] currentPositions;
-    int maxRounds;
+    protected int maxRounds;
     protected DictionaryLoader dictionary;
     protected WordList wordList;
     protected HiddenWord hiddenWord;
     protected Game game;
+    protected WordleGUI ui;
 
-    public WordleController(int maxRounds, DictionaryLoader dictionary, WordList wordList, HiddenWord hiddenWord,Game game) {
-        this.maxRounds = maxRounds;
+
+    public WordleController(DictionaryLoader dictionary, WordList wordList, WordleGUI ui) {
         this.dictionary = dictionary;
         this.wordList = wordList;
-        this.hiddenWord = hiddenWord;
-        this.game = game;
+        this.ui = ui;
         System.out.println("WordleController constructor");
+
     }
 
-    public void onPlay() {
+    public void onPlay(int round) {
+        this.hiddenWord = new HiddenWord(wordList.getWordRandomly());
+        maxRounds = round;
+        game = new Game(maxRounds);
         System.out.println("This starts the game, controlling the entire flow, grabbing the word from wordList, etc.");
     }
 
@@ -29,7 +36,35 @@ class WordleController {
     }
 
     public void onEnter() {
-        System.out.println("Func that submits the word when user hits enter, then changes the blocks colors to give appropriate answer");
+        ArrayList<Integer> positions;
+        String word = ui.getText();
+        Boolean yesOrNo = wordList.existsInList(word);
+        if (yesOrNo) {
+            roundNumber++;
+            positions = hiddenWord.checkPositions(word);
+            ui.setColors(positions, roundNumber);
+            if (game.hasWon()) {
+                //launches pop-up saying that you won
+                //asks if you want to play again, or go to the main menu. Play again sets you back on the same difficulty
+            }
+            else if (game.hasLost()) {
+                //launches pop-up saying that you lost
+                //asks if you want to play again, or go to the main menu. Play again sets you back on the same difficulty
+            }
+        }
+
+    }
+
+    public void onEasy() {
+        onPlay(10);
+    }
+
+    public void onMedium() {
+        onPlay(6);
+    }
+
+    public void onHard() {
+        onPlay(4);
     }
 
 
