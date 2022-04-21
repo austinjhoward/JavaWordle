@@ -41,12 +41,10 @@ public class WordleController {
             positions = hiddenWord.checkPositions(word);
             ui.setColors(positions, roundNumber);
             if (game.hasWon()) {
-                //launches pop-up saying that you won
-                //asks if you want to play again, or go to the main menu. Play again sets you back on the same difficulty
+                ui.showPopUp("You won!");
             }
             else if (game.hasLost()) {
-                //launches pop-up saying that you lost
-                //asks if you want to play again, or go to the main menu. Play again sets you back on the same difficulty
+                ui.showPopUp("You lost!");
             }
         }
 

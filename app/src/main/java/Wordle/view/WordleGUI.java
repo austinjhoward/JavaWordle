@@ -25,11 +25,13 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
     private JPanel masterPanel;
     private JPanel replayPanel;
     private JPanel exitPanel;
+    private JPanel endgameTextPanel;
     private JPanel gridPanel;
     private JButton enterButton;
     private JButton replayButton;
     private JButton exitButton;
     private JTextField textField;
+    private JTextField endgameMessage;
     private JPanel[][] panels = new JPanel[6][5];
     private JLabel[][] labels = new JLabel[6][5];
   
@@ -117,16 +119,21 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
         endgameFrame.setSize(400, 400);
         replayPanel = new JPanel(new BorderLayout());
         exitPanel = new JPanel(new BorderLayout());
+        endgameTextPanel = new JPanel(new BorderLayout());
 
+        endgameMessage = new JTextField("You won!");
+        endgameMessage.setHorizontalAlignment(SwingConstants.CENTER);
+        endgameMessage.setFont(font2);
         replayButton = new JButton("Replay");
         exitButton = new JButton("Exit");
         replayButton.setFont(font2);
         exitButton.setFont(font2);
 
+        endgameTextPanel.add(endgameMessage);
         replayPanel.add(replayButton);
         exitPanel.add(exitButton);
         
-
+        endgameFrame.add(endgameTextPanel, BorderLayout.NORTH);
         endgameFrame.add(replayPanel, BorderLayout.CENTER);
         endgameFrame.add(exitPanel, BorderLayout.SOUTH);
         endgameFrame.setLocation(100, 200);
@@ -148,6 +155,10 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
                 }   
             }
 
+    public void draw(int numRows) {
+        //lines 41 to 110
+    }
+
     public String getText() {
         return this.textField.getText();
     }
@@ -158,7 +169,7 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
     }
 
     public void showPopUp(String msg) {
-        System.out.println("This function produces the endgame popup");
+        endgameFrame.setVisible(true);
     }
 
     public void setEnter(ActionListener l) {
