@@ -15,9 +15,10 @@ import javax.swing.border.LineBorder;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.lang.Integer;
+import java.awt.event.*;
 
 
-public class WordleGUI implements WordleUserInterface {
+public class WordleGUI implements WordleUserInterface, KeyListener {
 
     private JFrame frame;
     private JFrame endgameFrame;
@@ -92,11 +93,15 @@ public class WordleGUI implements WordleUserInterface {
         textField = new JTextField("Enter a 5 letter word");
         textField.setFont(font2);
         textButtonPanel.add(textField);
+        // adding KeyListener to the text area   
+        textField.addKeyListener(this);   
+    
   
         // Creating the enter button
   
         enterButton = new JButton("Enter");
         enterButton.setFont(font2);
+        enterButton.setEnabled(false);
         textButtonPanel.add(enterButton);
   
         // Adding both panels to the master panel, positioning them and
@@ -127,6 +132,21 @@ public class WordleGUI implements WordleUserInterface {
         endgameFrame.setLocation(100, 200);
         endgameFrame.setVisible(true);
     }
+    public void keyTyped(KeyEvent e) {}    
+    public void keyPressed(KeyEvent e) {}    
+    public void keyReleased (KeyEvent e) {    
+        // defining a string which is fetched by the getText() method of TextArea class  
+                String text = textField.getText();      
+                if (text.length()<5){
+                    enterButton.setEnabled(false);
+                }
+                else if (text.length()==5){
+                    enterButton.setEnabled(true);
+                }
+                else if (text.length()>5){
+                    enterButton.setEnabled(false);
+                }   
+            }
 
     public String getText() {
         return this.textField.getText();
