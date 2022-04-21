@@ -48,12 +48,7 @@ public class Driver {
                controller.onEnter();
             }
          });
-
-         gui.setOnChangeText(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-               controller.onChangeText();
-            }
-         });
+         
       } catch (IOException e) {
          System.out.println(e);
       }

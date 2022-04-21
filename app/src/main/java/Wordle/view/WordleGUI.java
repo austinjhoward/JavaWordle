@@ -110,7 +110,7 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
         masterPanel.add(gridPanel, BorderLayout.CENTER);
         masterPanel.add(textButtonPanel, BorderLayout.SOUTH);
         frame.add(masterPanel);
-        frame.setVisible(true);
+        frame.setVisible(false);
 
         endgameFrame = new JFrame("Endgame");
         endgameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -163,10 +163,6 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
 
     public void setEnter(ActionListener l) {
         enterButton.addActionListener(l);
-    }
-
-    public void setOnChangeText(ActionListener l) {
-        System.out.println("Our setOnChangeText button");
     }
 
     public void setWordleVisible()
