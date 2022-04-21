@@ -31,9 +31,6 @@ public class WordleController {
         System.out.println("This starts the game, controlling the entire flow, grabbing the word from wordList, etc.");
     }
 
-    public void onChangeText() {
-        System.out.println("Func that enables us to check if user put in a five letter word");
-    }
 
     public void onEnter() {
         ArrayList<Integer> positions;
