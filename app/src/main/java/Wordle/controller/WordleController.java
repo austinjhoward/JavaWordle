@@ -13,10 +13,10 @@ public class WordleController {
     protected WordList wordList;
     protected HiddenWord hiddenWord;
     protected Game game;
-    protected WordleGUI ui;
+    protected WordleUserInterface ui;
 
 
-    public WordleController(DictionaryLoader dictionary, WordList wordList, WordleGUI ui) {
+    public WordleController(DictionaryLoader dictionary, WordList wordList, WordleUserInterface ui) {
         this.dictionary = dictionary;
         this.wordList = wordList;
         this.ui = ui;
