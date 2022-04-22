@@ -12,16 +12,28 @@ public class Game
         this.maxRounds = maxRounds;
     }
 
-    public Boolean hasWon()
+    public Boolean hasWon(ArrayList<Integer> positions)
     {
-        System.out.println("hasWon method called");
-        return true;
+        boolean wonGame = true;
+        for (int number : positions)
+        {
+           if (number != 2)
+           {
+           wonGame = false;
+           break;
+            } 
+        }
+        
+        return wonGame;
     }
 
     public Boolean hasLost()
     {
-        System.out.println("hasLost method called");
-        return false;
+        boolean lostGame = false;
+        if (roundNumber == maxRounds){
+            lostGame = true;
+        }
+        return lostGame;
     }
 
     public int getRoundNumber()
