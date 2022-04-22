@@ -32,8 +32,9 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
     private JButton exitButton;
     private JTextField textField;
     private JTextField endgameMessage;
-    private JPanel[][] panels = new JPanel[6][5];
-    private JLabel[][] labels = new JLabel[6][5];
+    private JPanel[][] panels;
+    private JLabel[][] labels;
+    private Font font2 = new Font("Arial", Font.BOLD, 38);
   
 
 
@@ -87,7 +88,7 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
         // This part of the code creates a new panel that will contain
         // a text box and an enter button
   
-        Font font2 = new Font("Arial", Font.BOLD, 38);
+        //Font font2 = new Font("Arial", Font.BOLD, 38);
         //JPanel textButtonPanel = new JPanel();
   
         // Creating the text box
@@ -157,28 +158,31 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
             }
 
     public void draw(int numRows) {
-        frame.setSize(600, 800);
+
+        panels = new JPanel[numRows][5];
+        labels = new JLabel[numRows][5];
+        frame.setSize(600, ((numRows*100)+200));
         masterPanel = new JPanel(new BorderLayout());
         gridPanel = new JPanel();
-        gridPanel.setLayout(new GridLayout(6, 5, 2, 2));
+        gridPanel.setLayout(new GridLayout(numRows, 5, 2, 2));
         Border border = LineBorder.createGrayLineBorder();
         Font font1 = new Font("Arial", Font.BOLD, 80);
   
         // Loop that fills a 2D array with Jpanels
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < numRows; i++) {
            for (int j = 0; j < 5; j++) {
               panels[i][j] = new JPanel();
            }
         }
         // Loop that fills a 2D array with JLabels
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < numRows; i++) {
            for (int j = 0; j < 5; j++) {
               labels[i][j] = new JLabel(" ");
            }
         }
         // Loop that sets the default color of the text and panel and places label in
         // the panel
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < numRows; i++) {
            for (int j = 0; j < 5; j++) {
               labels[i][j].setFont(font1);
               labels[i][j].setForeground(new Color(238, 238, 238));
