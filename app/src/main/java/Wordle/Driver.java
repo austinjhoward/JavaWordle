@@ -23,6 +23,12 @@ public class Driver {
             public void actionPerformed(ActionEvent e) {
                mainMen.disposeFrame();
                controller.onEasy();
+               gui.draw(10);
+               gui.setEnter(new ActionListener() {
+                  public void actionPerformed(ActionEvent e) {
+                     controller.onEnter();
+                  }
+               });
                gui.setWordleVisible();
             }
          });
@@ -31,6 +37,12 @@ public class Driver {
             public void actionPerformed(ActionEvent e) {
                mainMen.disposeFrame();
                controller.onMedium();
+               gui.draw(6);
+               gui.setEnter(new ActionListener() {
+                  public void actionPerformed(ActionEvent e) {
+                     controller.onEnter();
+                  }
+               });
                gui.setWordleVisible();
             }
          });
@@ -39,13 +51,13 @@ public class Driver {
             public void actionPerformed(ActionEvent e) {
                mainMen.disposeFrame();
                controller.onHard();
+               gui.draw(4);
+               gui.setEnter(new ActionListener() {
+                  public void actionPerformed(ActionEvent e) {
+                     controller.onEnter();
+                  }
+               });
                gui.setWordleVisible();
-            }
-         });
-
-         gui.setEnter(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-               controller.onEnter();
             }
          });
          
