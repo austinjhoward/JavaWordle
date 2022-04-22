@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Game 
 {
-    private int roundNumber;
+    private int roundNumber = 0;
     private ArrayList<Integer> currentPositions = new ArrayList<Integer>();
     private int maxRounds;
 
@@ -38,25 +38,25 @@ public class Game
 
     public int getRoundNumber()
     {
-        System.out.println("getRoundNumber called");
+        //System.out.println("getRoundNumber called");
         return this.roundNumber;
     }
 
     public ArrayList<Integer> getCurrentPosition()
     {
-        System.out.println("getCurrentPosition called");
+        //System.out.println("getCurrentPosition called");
         return this.currentPositions;
     }
 
     public void incRoundNumber()
     {
-        System.out.println("Round nunber increased");
+        //System.out.println("Round nunber increased");
         this.roundNumber ++;
     }
 
     public void setMaxRounds(int max)
     {
-        System.out.println("setMaxRounds used");
+        //System.out.println("setMaxRounds used");
         this.roundNumber = max;
     }
 }

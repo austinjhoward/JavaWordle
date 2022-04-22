@@ -34,7 +34,14 @@ public class WordList
     // Checks if a word exists in the WordList
     public Boolean existsInList(String word)
     {
+        boolean exists = false;
+        for ( String testWord : this.words){
+            if (word.equals(testWord)){
+                exists = true;
+                break;
+            }
+        }
         System.out.println("existsInList method used");
-        return true;
+        return exists;
     }
 }

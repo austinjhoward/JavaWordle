@@ -40,7 +40,7 @@ public class WordleController {
             roundNumber++;
             positions = hiddenWord.checkPositions(word);
             ui.setColors(positions, roundNumber);
-            if (game.hasWon()) {
+            if (game.hasWon(positions)) {
                 ui.showPopUp("You won!");
             }
             else if (game.hasLost()) {
