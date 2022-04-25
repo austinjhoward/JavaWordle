@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.lang.Integer;
 
 public class WordleController {
-    int roundNumber = 0;
-    int[] currentPositions;
-    protected int maxRounds;
+
     protected DictionaryLoader dictionary;
     protected WordList wordList;
     protected HiddenWord hiddenWord;
@@ -26,20 +24,21 @@ public class WordleController {
 
     public void onPlay(int round) {
         this.hiddenWord = new HiddenWord(wordList.getWordRandomly());
-        maxRounds = round;
-        game = new Game(maxRounds);
+        game = new Game(round);
         System.out.println("This starts the game, controlling the entire flow, grabbing the word from wordList, etc.");
     }
 
 
     public void onEnter() {
         ArrayList<Integer> positions;
-        String word = ui.getText();
+        String word = ui.getText().toLowerCase();
         Boolean wordExists = wordList.existsInList(word);
         if (wordExists) {
-            roundNumber++;
+
             positions = hiddenWord.checkPositions(word);
-            ui.setColors(positions, roundNumber);
+            ui.setColors(positions, game.getRoundNumber());
+            ui.setWord(word, game.getRoundNumber());
+            game.incRoundNumber();
             if (game.hasWon(positions)) {
                 ui.showPopUp("You won!");
             }

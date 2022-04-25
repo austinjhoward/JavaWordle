@@ -192,17 +192,7 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
               gridPanel.add(panels[i][j]);
            }
         }
-        // Setting each square to show the way the game works when you guess a word
-        labels[0][0].setText("A");
-        panels[0][0].setBackground(new Color(198, 181, 102));
-        labels[0][1].setText("L");
-        panels[0][1].setBackground(new Color(198, 181, 102));
-        labels[0][2].setText("T");
-        panels[0][2].setBackground(new Color(107, 169, 100));
-        labels[0][3].setText("E");
-        panels[0][3].setBackground(new Color(121, 124, 126));
-        labels[0][4].setText("R");
-        panels[0][4].setBackground(new Color(121, 124, 126));
+
   
         // This part of the code creates a new panel that will contain
         // a text box and an enter button
@@ -240,7 +230,23 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
     }
 
     public void setColors(ArrayList<Integer> positions, int roundNumber){
-        //Takes the round number, uses it for the row #, then sets the colors appropriately
+        for(int i = 0; i < positions.size(); i++)
+        {
+            if(positions.get(i) == 1)
+            {
+                panels[roundNumber][i].setBackground(new Color(198, 181, 102));
+            }
+            else if(positions.get(i) == 2)
+            {
+                panels[roundNumber][i].setBackground(new Color(107, 169, 100));
+            }
+            else
+            {
+                panels[roundNumber][i].setBackground(new Color(121, 124, 126));
+            }
+
+        }
+
         System.out.println("this method sets the colors of the block");
     }
 
@@ -255,5 +261,13 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
     public void setWordleVisible()
     {
         frame.setVisible(true);
+    }
+
+    public void setWord(String word, int roundNumber)
+    {
+        for(int i = 0; i < 5; i++)
+        {
+            labels[roundNumber][i].setText(String.valueOf(word.charAt(i)).toUpperCase());
+        }
     }
 }

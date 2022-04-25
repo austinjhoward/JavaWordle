@@ -12,4 +12,5 @@ public interface WordleUserInterface {
     public void showPopUp(String msg);
     public void setEnter(ActionListener l);
     public void setWordleVisible();
+    public void setWord(String word, int roundNumber);
 }

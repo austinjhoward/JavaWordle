@@ -13,7 +13,7 @@ public class HiddenWord
     // Instantiates and assigns hidden word
     public HiddenWord(String word)
     {
-        System.out.println("HiddenWord instantiated");
+        System.out.println("HiddenWord: " + word);
         this.hiddenWord = word;
     }
 
@@ -28,8 +28,12 @@ public class HiddenWord
         {
             if(word.charAt(i) == hiddenWord.charAt(i))
             {
-                positions.set(i, 2);
+                positions.add(2);
                 indexesMatching.add(i);
+            }
+            else
+            {
+                positions.add(0);
             }
         }
         
@@ -48,10 +52,6 @@ public class HiddenWord
                     }
                 }
             }
-            if(!exists)
-            {
-                positions.set(i,0);
-            }            
         }
         return positions;
     
