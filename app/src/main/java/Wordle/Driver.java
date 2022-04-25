@@ -16,8 +16,9 @@ public class Driver {
       try {
          WordList wordList = new WordList(dictionary.loadDictionary("Dictionary.csv"));
          WordleGUI gui = new WordleGUI();
-         WordleController controller = new WordleController(dictionary, wordList, gui);
+         Streak streak = new Streak();
          MainMenuGUI mainMen = new MainMenuGUI();
+         WordleController controller = new WordleController(dictionary, wordList, gui, streak, mainMen);
 
          mainMen.setEasy(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

@@ -11,13 +11,19 @@ public class WordleController {
     protected WordList wordList;
     protected HiddenWord hiddenWord;
     protected Game game;
-    protected WordleUserInterface ui;
+    protected WordleUserInterface wordleUi;
+    protected Streak streak;
+    protected MainMenuInterface menuUi;
 
 
-    public WordleController(DictionaryLoader dictionary, WordList wordList, WordleUserInterface ui) {
+    public WordleController(DictionaryLoader dictionary, WordList wordList, WordleUserInterface ui, Streak streak, MainMenuInterface menuUi) {
         this.dictionary = dictionary;
         this.wordList = wordList;
-        this.ui = ui;
+        this.menuUi = menuUi;
+        this.streak = streak;
+        this.menuUi.sendData(this.streak.getStreak(), this.streak.getMaxStreak(), this.streak.getTotalGamesPlayed());
+        this.wordleUi = ui;
+
         System.out.println("WordleController constructor");
 
     }
@@ -28,22 +34,32 @@ public class WordleController {
         System.out.println("This starts the game, controlling the entire flow, grabbing the word from wordList, etc.");
     }
 
+    /*
+    public void onReplay() {
+        sendData
+        show menuGui
+    }
+
+     */
+
 
     public void onEnter() {
         ArrayList<Integer> positions;
-        String word = ui.getText().toLowerCase();
+        String word = wordleUi.getText().toLowerCase();
         Boolean wordExists = wordList.existsInList(word);
         if (wordExists) {
 
             positions = hiddenWord.checkPositions(word);
-            ui.setColors(positions, game.getRoundNumber());
-            ui.setWord(word, game.getRoundNumber());
+            wordleUi.setColors(positions, game.getRoundNumber());
+            wordleUi.setWord(word, game.getRoundNumber());
             game.incRoundNumber();
             if (game.hasWon(positions)) {
-                ui.showPopUp("You won!");
+                this.streak.incStreak();
+                wordleUi.showPopUp("You won!");
             }
             else if (game.hasLost()) {
-                ui.showPopUp("You lost!");
+                this.streak.resetStreak();
+                wordleUi.showPopUp("You lost!");
             }
         }
 

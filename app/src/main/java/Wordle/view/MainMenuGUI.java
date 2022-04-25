@@ -16,10 +16,11 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.*;
 
-public class MainMenuGUI {
+public class MainMenuGUI implements MainMenuInterface{
 
     private JFrame mainFrame;
     private JPanel mainPanel;
+    private JPanel streakPanel;
     private JButton easyButton;
     private JButton medButton;
     private JButton hardButton;
@@ -31,7 +32,7 @@ public class MainMenuGUI {
         mainFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     
         mainPanel = new JPanel(new GridBagLayout());
-        mainPanel.setPreferredSize(new Dimension(300, 100));
+        mainPanel.setPreferredSize(new Dimension(300, 200));
 
         GridBagConstraints easyCon = new GridBagConstraints();
 
@@ -62,8 +63,36 @@ public class MainMenuGUI {
 
         mainFrame.add(mainPanel);
 
+        GridBagConstraints streakCon = new GridBagConstraints();
+        streakPanel = new JPanel(new GridBagLayout());
+        streakPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        streakCon.gridx = 0;
+        streakCon.gridy = 1;
+        streakCon.gridwidth = 3;
+
+        mainPanel.add(streakPanel, streakCon);
         mainFrame.pack();
         mainFrame.setVisible(true);
+    }
+
+    @Override
+    public void sendData(Integer streak, Integer maxStreak, Integer total) {
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.VERTICAL;
+        c.gridx = 0;
+        c.gridy = 0;
+        Font font = new Font("Arial", Font.BOLD, 22);
+        JLabel streakLabel = new JLabel("Current streak: " + streak);
+        streakLabel.setFont(font);
+        streakPanel.add(streakLabel, c);
+        c.gridy = 1;
+        JLabel maxStreakLabel = new JLabel("Max streak: " + maxStreak);
+        maxStreakLabel.setFont(font);
+        streakPanel.add(maxStreakLabel, c);
+        c.gridy = 2;
+        JLabel totalLabel = new JLabel("Total games played: " + total);
+        totalLabel.setFont(font);
+        streakPanel.add(totalLabel, c);
     }
 
     public void setEasy(ActionListener l) {
@@ -85,4 +114,6 @@ public class MainMenuGUI {
     {
         mainFrame.dispose();
     }
+
+
 }
