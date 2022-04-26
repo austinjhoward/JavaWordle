@@ -16,7 +16,7 @@ public class WordleTest {
         try {
             dictionary.loadDictionary("asdasdasd.txt");
             assertEquals("Failed test, file does not exist", 13, 3);
-        }catch(IOException e){
+        } catch (IOException e) {
 
         }
     }
@@ -27,7 +27,7 @@ public class WordleTest {
         try {
             ArrayList<String> words = dictionary.loadDictionary("Dictionary.csv");
             assertEquals("Testing the number of words loaded", words.size(), 2315);
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println("Doesn't load");
         }
     }

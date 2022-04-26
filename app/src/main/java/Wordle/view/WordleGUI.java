@@ -122,7 +122,7 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
         exitPanel = new JPanel(new BorderLayout());
         endgameTextPanel = new JPanel(new BorderLayout());
 
-        endgameMessage = new JTextField("You won!");
+        endgameMessage = new JTextField();
         endgameMessage.setHorizontalAlignment(SwingConstants.CENTER);
         endgameMessage.setFont(font2);
         replayButton = new JButton("Replay");
@@ -138,7 +138,7 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
         endgameFrame.add(replayPanel, BorderLayout.CENTER);
         endgameFrame.add(exitPanel, BorderLayout.SOUTH);
         endgameFrame.setLocation(100, 200);
-        endgameFrame.setVisible(true);
+        endgameFrame.setVisible(false);
     }
 
     public void keyTyped(KeyEvent e) {}    
@@ -251,6 +251,7 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
     }
 
     public void showPopUp(String msg) {
+        endgameMessage.setText(msg);
         endgameFrame.setVisible(true);
     }
 
