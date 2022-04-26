@@ -29,7 +29,7 @@ public class MainMenuGUI implements MainMenuInterface{
     public MainMenuGUI()
     {
         mainFrame = new JFrame("Wordle Main Menu");
-        mainFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
         mainPanel = new JPanel(new GridBagLayout());
         mainPanel.setPreferredSize(new Dimension(300, 200));

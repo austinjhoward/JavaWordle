@@ -55,12 +55,15 @@ public class WordleController {
             game.incRoundNumber();
             if (game.hasWon(positions)) {
                 this.streak.incStreak();
-                wordleUi.showPopUp("You won!");
+                wordleUi.showEndgamePopUp("You won!");
             }
             else if (game.hasLost()) {
                 this.streak.resetStreak();
-                wordleUi.showPopUp("You lost!");
+                wordleUi.showEndgamePopUp("You lost!");
             }
+        }
+        else {
+            wordleUi.showWordNotExistPopup();
         }
 
     }
