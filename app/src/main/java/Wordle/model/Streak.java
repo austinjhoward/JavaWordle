@@ -7,13 +7,15 @@ public class Streak {
     private Integer streak;
     private Integer maxStreak;
     private Integer totalGamesPlayed;
+    private String fileName;
     //#Streak
     //15
     //#Max Streak
     //3
     //#Jugadas
     //50
-    public Streak(){
+    public Streak(String fileName){
+        this.fileName = fileName;
         this.readStreak();
     }
 
@@ -53,7 +55,7 @@ public class Streak {
     }
     private void readStreak() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Streak.txt"));
+            BufferedReader br = new BufferedReader(new FileReader(this.fileName));
             br.readLine();
             this.streak = Integer.parseInt(br.readLine());
             br.readLine();
@@ -67,7 +69,7 @@ public class Streak {
     }
     private void writeStreak(){
         try {
-            PrintWriter pw = new PrintWriter(new FileWriter("Streak.txt"));
+            PrintWriter pw = new PrintWriter(new FileWriter(this.fileName));
             pw.println("#Streak");
             pw.println(String.valueOf(this.streak));
             pw.println("#Max streak");
