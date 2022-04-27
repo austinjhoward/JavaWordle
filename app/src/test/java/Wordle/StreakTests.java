@@ -6,16 +6,25 @@ import Wordle.model.Streak;
 import java.io.*;
 
 public class StreakTests {
-    // In terms of testing streak without overwriting it,
-    //  should we make streak take the file name as an input??
-    //  Instead of always assuming the text file is called "streak.txt"?
 
-    Streak streak = new Streak();
+    Streak streak = new Streak("StreakTest.txt");
+    //#Streak
+    // 0
+    // #Max streak
+    // 10
+    // #Total games played
+    // 100
 
     @Test
     public void streakLoadingTest() {
+        Integer zero = new Integer(0);
+        assertEquals("Streak should be zero", zero, streak.getStreak());
+    }
+
+    @Test
+    public void increaseStreakTest() {
+        streak.incStreak();
         Integer one = new Integer(1);
-        one = 1;
-        assertEquals("Streak should be 1", one, streak.getStreak());
+        assertEquals("Streak should now be one",one,streak.getStreak());
     }
 }

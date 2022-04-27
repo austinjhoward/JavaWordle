@@ -23,15 +23,15 @@ public class HiddenWordTests {
         assertEquals("Hidden word should be tests","tests",word.getHiddenWord());
     }
     
-    //@Test
-    //public void checkPositionsMatchTest() {
-    //    String testWord = "teams";
-    //    ArrayList<Integer> correctPositions = new ArrayList<Integer>();
-    //    correctPositions.add(2);
-    //    correctPositions.add(2);
-    //    correctPositions.add(0);
-    //    correctPositions.add(0);
-    //    correctPositions.add(2);
-    //    assertEquals("checkPositions should return an array of [2,2,0,0,2]",correctPositions,word.checkPositions(testWord));
-    //}
+    @Test
+    public void checkPositionsMatchTest() {
+        String testWord = "teams";
+        ArrayList<Integer> correctPositions = new ArrayList<Integer>();
+        correctPositions.add(2);
+        correctPositions.add(2);
+        correctPositions.add(0);
+        correctPositions.add(0);
+        correctPositions.add(2);
+        assertEquals("checkPositions should return an array of [2,2,0,0,2]",correctPositions,word.checkPositions(testWord));
+    }
 }

@@ -16,7 +16,7 @@ public class Driver {
       try {
          WordList wordList = new WordList(dictionary.loadDictionary("Dictionary.csv"));
          WordleGUI gui = new WordleGUI();
-         Streak streak = new Streak();
+         Streak streak = new Streak("Streak.txt");
          MainMenuGUI mainMen = new MainMenuGUI();
          WordleController controller = new WordleController(dictionary, wordList, gui, streak, mainMen);
 
