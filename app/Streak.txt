@@ -1,6 +1,6 @@
 #Streak
-0
+7
 #Max streak
 36
 #Total games played
-87
+104

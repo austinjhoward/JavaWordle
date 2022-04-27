@@ -7,7 +7,6 @@ import java.lang.Integer;
 import java.awt.event.ActionListener;
 import java.awt.event.*;
 
-
 public class WordleController {
 
     protected DictionaryLoader dictionary;
@@ -16,11 +15,10 @@ public class WordleController {
     protected Game game;
     protected WordleUserInterface wordleUi;
     protected Streak streak;
-    protected int round;
     protected MainMenuInterface menuUi;
 
-
-    public WordleController(DictionaryLoader dictionary, WordList wordList, WordleUserInterface ui, Streak streak, MainMenuInterface menuUi) {
+    public WordleController(DictionaryLoader dictionary, WordList wordList, WordleUserInterface ui, Streak streak,
+            MainMenuInterface menuUi) {
         this.dictionary = dictionary;
         this.wordList = wordList;
         this.menuUi = menuUi;
@@ -33,20 +31,20 @@ public class WordleController {
     }
 
     public void onPlay(int round) {
-        this.round = round;
         this.hiddenWord = new HiddenWord(wordList.getWordRandomly());
         game = new Game(round);
         System.out.println("This starts the game, controlling the entire flow, grabbing the word from wordList, etc.");
     }
 
-    
     public void onReplay() {
-        onPlay(round);
-        wordleUi.clearColorAndWord(round);
+        wordleUi.clearColorAndWord(game.getRoundNumber());
+        onPlay(game.getRoundNumber());
+        
+
     }
 
     public void onMainMenu() {
-        wordleUi.clearColorAndWord(round);
+        wordleUi.clearColorAndWord(game.getRoundNumber());
         wordleUi.closeWordle();
         menuUi.showFrame();
     }
@@ -64,16 +62,13 @@ public class WordleController {
             if (game.hasWon(positions)) {
                 this.streak.incStreak();
                 wordleUi.showEndgamePopUp("You won!");
-            }
-            else if (game.hasLost()) {
+            } else if (game.hasLost()) {
                 this.streak.resetStreak();
                 wordleUi.showEndgamePopUp("You lost!");
             }
-        }
-        else {
+        } else {
             wordleUi.showWordNotExistPopup();
         }
-
     }
 
     public void onEasy() {
@@ -87,6 +82,5 @@ public class WordleController {
     public void onHard() {
         onPlay(4);
     }
-
 
 }
