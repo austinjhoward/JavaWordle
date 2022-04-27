@@ -77,6 +77,7 @@ public class MainMenuGUI implements MainMenuInterface{
     
     @Override
     public void sendData(Integer streak, Integer maxStreak, Integer total) {
+        streakPanel.removeAll();
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.VERTICAL;
         c.gridx = 0;

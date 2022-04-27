@@ -46,6 +46,7 @@ public class WordleController {
     public void onMainMenu() {
         wordleUi.clearColorAndWord(game.getRoundNumber());
         wordleUi.closeWordle();
+        this.menuUi.sendData(this.streak.getStreak(),this.streak.getMaxStreak(),this.streak.getTotalGamesPlayed());
         menuUi.showFrame();
     }
 
