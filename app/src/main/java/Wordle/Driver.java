@@ -20,6 +20,7 @@ public class Driver {
          MainMenuGUI mainMen = new MainMenuGUI();
          WordleController controller = new WordleController(dictionary, wordList, gui, streak, mainMen);
 
+
          mainMen.setEasy(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                mainMen.disposeFrame();
@@ -59,6 +60,19 @@ public class Driver {
                   }
                });
                gui.setWordleVisible();
+            }
+         });
+
+         gui.setReplay(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+               controller.onReplay();
+            }
+         });
+
+         gui.setMainMenu(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               controller.onMainMenu();
             }
          });
          

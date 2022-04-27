@@ -74,7 +74,7 @@ public class MainMenuGUI implements MainMenuInterface{
         mainFrame.pack();
         mainFrame.setVisible(true);
     }
-
+    
     @Override
     public void sendData(Integer streak, Integer maxStreak, Integer total) {
         GridBagConstraints c = new GridBagConstraints();
@@ -113,6 +113,10 @@ public class MainMenuGUI implements MainMenuInterface{
     public void disposeFrame()
     {
         mainFrame.dispose();
+    }
+
+    public void showFrame() {
+        mainFrame.setVisible(true);
     }
 
 

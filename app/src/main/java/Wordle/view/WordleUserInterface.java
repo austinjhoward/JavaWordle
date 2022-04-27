@@ -13,5 +13,7 @@ public interface WordleUserInterface {
     public void showWordNotExistPopup();
     public void setEnter(ActionListener l);
     public void setWordleVisible();
+    public void clearColorAndWord(int roundnumber);
+    public void closeWordle();
     public void setWord(String word, int roundNumber);
 }

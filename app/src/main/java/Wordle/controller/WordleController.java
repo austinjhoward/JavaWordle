@@ -4,6 +4,9 @@ import Wordle.model.*;
 import Wordle.view.*;
 import java.util.ArrayList;
 import java.lang.Integer;
+import java.awt.event.ActionListener;
+import java.awt.event.*;
+
 
 public class WordleController {
 
@@ -13,6 +16,7 @@ public class WordleController {
     protected Game game;
     protected WordleUserInterface wordleUi;
     protected Streak streak;
+    protected int round;
     protected MainMenuInterface menuUi;
 
 
@@ -29,19 +33,23 @@ public class WordleController {
     }
 
     public void onPlay(int round) {
+        this.round = round;
         this.hiddenWord = new HiddenWord(wordList.getWordRandomly());
         game = new Game(round);
         System.out.println("This starts the game, controlling the entire flow, grabbing the word from wordList, etc.");
     }
 
-    /*
+    
     public void onReplay() {
-        sendData
-        show menuGui
+        onPlay(round);
+        wordleUi.clearColorAndWord(round);
     }
 
-     */
-
+    public void onMainMenu() {
+        wordleUi.clearColorAndWord(round);
+        wordleUi.closeWordle();
+        menuUi.showFrame();
+    }
 
     public void onEnter() {
         ArrayList<Integer> positions;
