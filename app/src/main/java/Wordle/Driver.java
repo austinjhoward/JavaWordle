@@ -18,7 +18,8 @@ public class Driver {
          WordleGUI gui = new WordleGUI();
          Streak streak = new Streak("Streak.txt");
          MainMenuGUI mainMen = new MainMenuGUI();
-         WordleController controller = new WordleController(dictionary, wordList, gui, streak, mainMen);
+         EndGameGUI endgameGUI = new EndGameGUI();
+         WordleController controller = new WordleController(dictionary, wordList, gui, streak, mainMen, endgameGUI);
 
 
          mainMen.setEasy(new ActionListener() {
@@ -63,15 +64,16 @@ public class Driver {
             }
          });
 
-         gui.setReplay(new ActionListener() {
+         endgameGUI.setReplay(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+               endgameGUI.closeEndgamePopup();
                controller.onReplay();
             }
          });
 
-         gui.setMainMenu(new ActionListener() {
+         endgameGUI.setMainMenu(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+               endgameGUI.closeEndgamePopup();
                controller.onMainMenu();
             }
          });

@@ -17,14 +17,14 @@ import java.util.ArrayList;
 import java.lang.Integer;
 import java.awt.event.*;
 
-public class EndGameGUI {
+public class EndGameGUI implements EndGameUserInterface{
 
     private JFrame endgameFrame;
     private JPanel replayPanel;
     private JPanel exitPanel;
     private JPanel endgameTextPanel;
     private JButton replayButton;
-    private JButton exitButton;
+    private JButton mainMenuButton;
     private JTextField endgameMessage;
     private Font font2 = new Font("Arial", Font.BOLD, 38);
 
@@ -36,23 +36,40 @@ public class EndGameGUI {
         exitPanel = new JPanel(new BorderLayout());
         endgameTextPanel = new JPanel(new BorderLayout());
 
-        endgameMessage = new JTextField("You won!");
+        endgameMessage = new JTextField();
         endgameMessage.setHorizontalAlignment(SwingConstants.CENTER);
         endgameMessage.setFont(font2);
         replayButton = new JButton("Replay");
-        exitButton = new JButton("Exit");
+        mainMenuButton = new JButton("Main Menu");
         replayButton.setFont(font2);
-        exitButton.setFont(font2);
+        mainMenuButton.setFont(font2);
 
         endgameTextPanel.add(endgameMessage);
         replayPanel.add(replayButton);
-        exitPanel.add(exitButton);
-        
+        exitPanel.add(mainMenuButton);
+
         endgameFrame.add(endgameTextPanel, BorderLayout.NORTH);
         endgameFrame.add(replayPanel, BorderLayout.CENTER);
         endgameFrame.add(exitPanel, BorderLayout.SOUTH);
         endgameFrame.setLocation(100, 200);
+        endgameFrame.setVisible(false);
+    }
+    
+    public void showEndgamePopUp(String msg, String word) {
+        endgameMessage.setText(msg);
         endgameFrame.setVisible(true);
+    }
+
+    public void setReplay(ActionListener l) {
+        replayButton.addActionListener(l);
+    }
+
+    public void setMainMenu(ActionListener l) {
+        mainMenuButton.addActionListener(l);
+    }
+
+    public void closeEndgamePopup() {
+        endgameFrame.dispose();
     }
     
 }

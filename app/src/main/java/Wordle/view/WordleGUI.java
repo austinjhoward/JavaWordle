@@ -20,59 +20,27 @@ import java.awt.event.*;
 public class WordleGUI implements WordleUserInterface, KeyListener {
 
     private JFrame frame;
-    private JFrame endgameFrame;
     private JFrame wordNotExistFrame;
     private JPanel masterPanel;
-    private JPanel replayPanel;
-    private JPanel exitPanel;
     private JPanel wordNotExistPanel;
-    private JPanel endgameTextPanel;
     private JPanel gridPanel;
     private JButton enterButton;
-    private JButton replayButton;
-    private JButton mainMenuButton;
     private JTextField textField;
-    private JTextField endgameMessage;
     private JTextField wordNotExistMessage;
     private JPanel[][] panels;
     private JLabel[][] labels;
     private int frameWidth = 600;
     private int numRows;
-    private Font font2 = new Font("Arial", Font.BOLD, 38);
+    private Font font2 = new Font("Arial", Font.BOLD, 13);
 
     public WordleGUI() {
-        // Code to create engame popup
-        endgameFrame = new JFrame("Endgame");
-        endgameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        endgameFrame.setSize(400, 400);
-        replayPanel = new JPanel(new BorderLayout());
-        exitPanel = new JPanel(new BorderLayout());
-        endgameTextPanel = new JPanel(new BorderLayout());
-
-        endgameMessage = new JTextField();
-        endgameMessage.setHorizontalAlignment(SwingConstants.CENTER);
-        endgameMessage.setFont(font2);
-        replayButton = new JButton("Replay");
-        mainMenuButton = new JButton("Main Menu");
-        replayButton.setFont(font2);
-        mainMenuButton.setFont(font2);
-
-        endgameTextPanel.add(endgameMessage);
-        replayPanel.add(replayButton);
-        exitPanel.add(mainMenuButton);
-
-        endgameFrame.add(endgameTextPanel, BorderLayout.NORTH);
-        endgameFrame.add(replayPanel, BorderLayout.CENTER);
-        endgameFrame.add(exitPanel, BorderLayout.SOUTH);
-        endgameFrame.setLocation(100, 200);
-        endgameFrame.setVisible(false);
-
         // code to create "Word not in dictionary popup"
         wordNotExistFrame = new JFrame("Word Doesn't Exist");
         wordNotExistFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         wordNotExistFrame.setSize(350, 150);
         wordNotExistPanel = new JPanel(new BorderLayout());
         wordNotExistMessage = new JTextField("That word isn't in the dictionary! Try a new one.");
+        wordNotExistMessage.setFont(font2);
         wordNotExistMessage.setHorizontalAlignment(SwingConstants.CENTER);
 
         wordNotExistPanel.add(wordNotExistMessage);
@@ -189,26 +157,12 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
         System.out.println("this method sets the colors of the block");
     }
 
-    public void showEndgamePopUp(String msg) {
-        endgameMessage.setText(msg);
-        endgameFrame.setVisible(true);
-    }
-
     public void showWordNotExistPopup() {
         wordNotExistFrame.setVisible(true);
     }
 
     public void setEnter(ActionListener l) {
         enterButton.addActionListener(l);
-    }
-
-
-    public void setReplay(ActionListener l) {
-        replayButton.addActionListener(l);
-    }
-
-    public void setMainMenu(ActionListener l) {
-        mainMenuButton.addActionListener(l);
     }
 
     public void setWordleVisible() {
@@ -222,7 +176,6 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
     }
 
     public void clearColorAndWord(int roundNumber) {
-        endgameFrame.dispose();
         //textField.setText("");
         textField.setSize(200, 100);
         for (int i = 0; i < roundNumber; i++) {

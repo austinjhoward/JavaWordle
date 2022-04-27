@@ -4,8 +4,7 @@ import Wordle.model.*;
 import Wordle.view.*;
 import java.util.ArrayList;
 import java.lang.Integer;
-import java.awt.event.ActionListener;
-import java.awt.event.*;
+
 
 public class WordleController {
 
@@ -16,15 +15,17 @@ public class WordleController {
     protected WordleUserInterface wordleUi;
     protected Streak streak;
     protected MainMenuInterface menuUi;
+    protected EndGameUserInterface endgameUi;
 
     public WordleController(DictionaryLoader dictionary, WordList wordList, WordleUserInterface ui, Streak streak,
-            MainMenuInterface menuUi) {
+            MainMenuInterface menuUi, EndGameUserInterface endgameUi) {
         this.dictionary = dictionary;
         this.wordList = wordList;
         this.menuUi = menuUi;
         this.streak = streak;
         this.menuUi.sendData(this.streak.getStreak(), this.streak.getMaxStreak(), this.streak.getTotalGamesPlayed());
         this.wordleUi = ui;
+        this.endgameUi = endgameUi;
 
         System.out.println("WordleController constructor");
 
@@ -62,10 +63,10 @@ public class WordleController {
             game.incRoundNumber();
             if (game.hasWon(positions)) {
                 this.streak.incStreak();
-                wordleUi.showEndgamePopUp("You won!");
+                endgameUi.showEndgamePopUp("You won!", "");
             } else if (game.hasLost()) {
                 this.streak.resetStreak();
-                wordleUi.showEndgamePopUp("You lost!");
+                endgameUi.showEndgamePopUp("You lost!", "");
             }
         } else {
             wordleUi.showWordNotExistPopup();
