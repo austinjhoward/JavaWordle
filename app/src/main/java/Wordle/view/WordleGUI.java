@@ -155,7 +155,8 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
     }
 
     public void clearColorAndWord(int roundNumber) {
-        //textField.setText("");
+        enterButton.setEnabled(true);
+        textField.setEnabled(true);
         textField.setSize(200, 100);
         for (int i = 0; i < roundNumber; i++) {
             for (int j = 0; j < 5; j++) {
@@ -163,6 +164,11 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
                 panels[i][j].setBackground(new Color(238, 238, 238));
             }
         }
+    }
+
+    public void disableEnter() {
+        enterButton.setEnabled(false);
+        textField.setEnabled(false);;
     }
 
     public void closeWordle() {

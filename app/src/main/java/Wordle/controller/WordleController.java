@@ -62,9 +62,11 @@ public class WordleController {
             wordleUi.setWord(word, game.getRoundNumber());
             game.incRoundNumber();
             if (game.hasWon(positions)) {
+                wordleUi.disableEnter();
                 this.streak.incStreak();
                 endgameUi.showEndgamePopUp("You won!", this.hiddenWord.getHiddenWord());
             } else if (game.hasLost()) {
+                wordleUi.disableEnter();
                 this.streak.resetStreak();
                 endgameUi.showEndgamePopUp("You lost!", this.hiddenWord.getHiddenWord());
             }
