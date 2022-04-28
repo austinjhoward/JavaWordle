@@ -16,9 +16,10 @@ public class WordleController {
     protected Streak streak;
     protected MainMenuInterface menuUi;
     protected EndGameUserInterface endgameUi;
+    protected WordNotExistUserInterface wordNotExistUi;
 
     public WordleController(DictionaryLoader dictionary, WordList wordList, WordleUserInterface ui, Streak streak,
-            MainMenuInterface menuUi, EndGameUserInterface endgameUi) {
+            MainMenuInterface menuUi, EndGameUserInterface endgameUi, WordNotExistUserInterface wordNotExistUi) {
         this.dictionary = dictionary;
         this.wordList = wordList;
         this.menuUi = menuUi;
@@ -26,6 +27,7 @@ public class WordleController {
         this.menuUi.sendData(this.streak.getStreak(), this.streak.getMaxStreak(), this.streak.getTotalGamesPlayed());
         this.wordleUi = ui;
         this.endgameUi = endgameUi;
+        this.wordNotExistUi = wordNotExistUi;
 
         System.out.println("WordleController constructor");
 
@@ -38,14 +40,12 @@ public class WordleController {
     }
 
     public void onReplay() {
-        wordleUi.clearColorAndWord(game.getRoundNumber());
-        onPlay(game.getRoundNumber());
-        
-
+        wordleUi.clearColorAndWord(game.getMaxRoundNumber());
+        onPlay(game.getMaxRoundNumber());
     }
 
     public void onMainMenu() {
-        wordleUi.clearColorAndWord(game.getRoundNumber());
+        wordleUi.clearColorAndWord(game.getMaxRoundNumber());
         wordleUi.closeWordle();
         this.menuUi.sendData(this.streak.getStreak(),this.streak.getMaxStreak(),this.streak.getTotalGamesPlayed());
         menuUi.showFrame();
@@ -63,13 +63,13 @@ public class WordleController {
             game.incRoundNumber();
             if (game.hasWon(positions)) {
                 this.streak.incStreak();
-                endgameUi.showEndgamePopUp("You won!", "");
+                endgameUi.showEndgamePopUp("You won!", this.hiddenWord.getHiddenWord());
             } else if (game.hasLost()) {
                 this.streak.resetStreak();
-                endgameUi.showEndgamePopUp("You lost!", "");
+                endgameUi.showEndgamePopUp("You lost!", this.hiddenWord.getHiddenWord());
             }
         } else {
-            wordleUi.showWordNotExistPopup();
+            wordNotExistUi.showWordNotExistPopup();
         }
     }
 

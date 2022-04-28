@@ -19,7 +19,8 @@ public class Driver {
          Streak streak = new Streak("Streak.txt");
          MainMenuGUI mainMen = new MainMenuGUI();
          EndGameGUI endgameGUI = new EndGameGUI();
-         WordleController controller = new WordleController(dictionary, wordList, gui, streak, mainMen, endgameGUI);
+         WordNotExistGUI wordNotExistGUI = new WordNotExistGUI();
+         WordleController controller = new WordleController(dictionary, wordList, gui, streak, mainMen, endgameGUI, wordNotExistGUI);
 
 
          mainMen.setEasy(new ActionListener() {

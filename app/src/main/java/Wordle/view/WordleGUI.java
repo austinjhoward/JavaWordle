@@ -33,23 +33,6 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
     private int numRows;
     private Font font2 = new Font("Arial", Font.BOLD, 13);
 
-    public WordleGUI() {
-        // code to create "Word not in dictionary popup"
-        wordNotExistFrame = new JFrame("Word Doesn't Exist");
-        wordNotExistFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        wordNotExistFrame.setSize(350, 150);
-        wordNotExistPanel = new JPanel(new BorderLayout());
-        wordNotExistMessage = new JTextField("That word isn't in the dictionary! Try a new one.");
-        wordNotExistMessage.setFont(font2);
-        wordNotExistMessage.setHorizontalAlignment(SwingConstants.CENTER);
-
-        wordNotExistPanel.add(wordNotExistMessage);
-        wordNotExistFrame.add(wordNotExistPanel);
-        wordNotExistFrame.setLocation(150, 300);
-        wordNotExistFrame.setVisible(true);
-        wordNotExistFrame.dispose(); // This is here because it solves a bug preventing the score board from showing
-    }
-
     public void keyTyped(KeyEvent e) {
     }
 
@@ -155,10 +138,6 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
         }
 
         System.out.println("this method sets the colors of the block");
-    }
-
-    public void showWordNotExistPopup() {
-        wordNotExistFrame.setVisible(true);
     }
 
     public void setEnter(ActionListener l) {

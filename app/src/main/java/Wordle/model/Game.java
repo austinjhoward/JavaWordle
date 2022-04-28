@@ -42,6 +42,10 @@ public class Game
         return this.roundNumber;
     }
 
+    public int getMaxRoundNumber() {
+        return this.maxRounds;
+    }
+
     public ArrayList<Integer> getCurrentPosition()
     {
         //System.out.println("getCurrentPosition called");
