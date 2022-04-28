@@ -5,11 +5,24 @@ import static org.junit.Assert.*;
 import Wordle.model.Streak;
 
 public class StreakTests {
+    
+    private Streak streak;
+    private Integer two;
+    private Integer one;
+    private Integer zero;
 
-    Streak streak = new Streak("StreakTest.txt");
-    Integer two = new Integer(2);
-    Integer one = new Integer(1);
-    Integer zero = new Integer(0);
+    @Before
+    public void init() {
+        streak = new Streak("StreakTest.txt");
+        two = new Integer(2);
+        one = new Integer(1);
+        zero = new Integer(0);
+    }
+
+    @After
+    public void clear() {
+        streak.resetStreak();
+    }
     //#Streak
     // 0
     // #Max streak
@@ -36,8 +49,18 @@ public class StreakTests {
 
     @Test
     public void refreshMaxStreakTest() {
-        streak.incStreak();
-        streak.incStreak();
-        assertEquals("Max Streak should be two",two,streak.getMaxStreak());
+        for (int i = 0; i < 11; i++) {
+            streak.incStreak();
+        }
+        Integer eleven = new Integer(11);
+        assertEquals("Max Streak should be eleven",eleven,streak.getMaxStreak());
+    }
+
+    @Test
+    public void getTotalGamesPlayedTest() {
+        Integer total = streak.getTotalGamesPlayed();
+        streak.incTotalGamesPlayed();
+        Integer totalPlus = new Integer(total.intValue()+1);
+        assertEquals("Total games played should increase by one",totalPlus,streak.getTotalGamesPlayed());
     }
 }
