@@ -94,6 +94,8 @@ public class MainMenuGUI implements MainMenuInterface{
         JLabel totalLabel = new JLabel("Total games played: " + total);
         totalLabel.setFont(font);
         streakPanel.add(totalLabel, c);
+        streakPanel.revalidate();
+        streakPanel.repaint();
     }
 
     public void setEasy(ActionListener l) {
@@ -119,6 +121,4 @@ public class MainMenuGUI implements MainMenuInterface{
     public void showFrame() {
         mainFrame.setVisible(true);
     }
-
-
 }
