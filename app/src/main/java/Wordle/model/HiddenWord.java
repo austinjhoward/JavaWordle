@@ -31,28 +31,33 @@ public class HiddenWord
                 positions.add(2);
                 indexesMatching.add(i);
             }
-            else
+            else 
             {
                 positions.add(0);
             }
         }
         
-        for(int i = 0; i < 5; i++)
-        {
-            Boolean exists = false;
-            for(int j = 0; j < 5; j++)
-            {
-                if(!indexesMatching.contains(j))
-                {
-                    if(word.charAt(i) == hiddenWord.charAt(j) && !exists)
-                    {
-                        exists = true;
-                        positions.set(i,1);
-                        indexesMatching.add(j);
-                    }
-                }
-            }
-        }
+       
+      for(int i = 0; i < 5; i++)
+       {
+           if(positions.get(i) != 2)
+           {
+               Boolean exists = false;
+               for(int j = 0; j < 5; j++)
+               {
+                   if(!indexesMatching.contains(j))
+                   {
+                   if(word.charAt(i) == hiddenWord.charAt(j) && !exists)
+                   {
+                       exists = true;
+                       positions.set(i,1);
+                       indexesMatching.add(j);
+                   }
+                   }
+               }
+               
+           }
+       }
         return positions;
     
     }
