@@ -21,7 +21,7 @@ public class HiddenWord
     //  returns their positions or lack of in it
     public  ArrayList<Integer> checkPositions(String word)
     {
-        System.out.println("checkPositions called");
+        //System.out.println("checkPositions called");
         positions = new ArrayList<Integer>();
         ArrayList<Integer> indexesMatching = new ArrayList<Integer>();
         for(int i = 0; i < 5; i++)
@@ -65,7 +65,7 @@ public class HiddenWord
     // Returns the hidden word
     public String getHiddenWord()
     {
-        System.out.println("getHiddenWord called");
+        //System.out.println("getHiddenWord called");
         return this.hiddenWord;
     }
 }

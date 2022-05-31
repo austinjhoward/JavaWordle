@@ -20,7 +20,7 @@ public class Driver {
          MainMenuGUI mainMen = new MainMenuGUI();
          EndGameGUI endgameGUI = new EndGameGUI();
          WordNotExistGUI wordNotExistGUI = new WordNotExistGUI();
-         WordleController controller = new WordleController(dictionary, wordList, gui, streak, mainMen, endgameGUI, wordNotExistGUI);
+         WordleController controller = new WordleController(wordList, gui, streak, mainMen, endgameGUI, wordNotExistGUI);
 
 
          mainMen.setEasy(new ActionListener() {

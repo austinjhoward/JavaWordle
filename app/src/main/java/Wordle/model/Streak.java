@@ -8,12 +8,7 @@ public class Streak {
     private Integer maxStreak;
     private Integer totalGamesPlayed;
     private String fileName;
-    //#Streak
-    //15
-    //#Max Streak
-    //3
-    //#Jugadas
-    //50
+
     public Streak(String fileName){
         this.fileName = fileName;
         this.readStreak();

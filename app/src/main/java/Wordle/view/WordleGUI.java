@@ -98,7 +98,7 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
 
         // Creating the text box
 
-        textField = new JTextField("Enter a 5 letter word");
+        textField = new JTextField("Enter a 5 letter word", 12);
         // textField.setSize(100, 100);
         textField.setFont(font2);
         textButtonPanel.add(textField);
@@ -137,7 +137,7 @@ public class WordleGUI implements WordleUserInterface, KeyListener {
 
         }
 
-        System.out.println("this method sets the colors of the block");
+        //System.out.println("this method sets the colors of the block");
     }
 
     public void setEnter(ActionListener l) {

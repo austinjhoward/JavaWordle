@@ -100,17 +100,17 @@ public class MainMenuGUI implements MainMenuInterface{
 
     public void setEasy(ActionListener l) {
         this.easyButton.addActionListener(l);
-        System.out.println("Our easy play button");
+        //System.out.println("Our easy play button");
     }
 
     public void setMedium(ActionListener l) {
         this.medButton.addActionListener(l);
-        System.out.println("Our medium play button");
+        //System.out.println("Our medium play button");
     }
 
     public void setHard(ActionListener l) {
         this.hardButton.addActionListener(l);
-        System.out.println("Our hard play button");
+        //System.out.println("Our hard play button");
     }
 
     public void disposeFrame()

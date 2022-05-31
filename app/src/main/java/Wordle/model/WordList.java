@@ -19,13 +19,13 @@ public class WordList
         {
             words.add(s);
         }
-        System.out.println("WordList instantiated");
+        //System.out.println("WordList instantiated");
     }
 
     // Generates and returns a random word
     public String getWordRandomly()
     {
-        System.out.println("getWordRandomly method used");
+        //System.out.println("getWordRandomly method used");
         randomInt = random.nextInt(words.size());
         String word = words.get(randomInt);
         return word;
@@ -41,7 +41,7 @@ public class WordList
                 break;
             }
         }
-        System.out.println("existsInList method used");
+        //System.out.println("existsInList method used");
         return exists;
     }
 }

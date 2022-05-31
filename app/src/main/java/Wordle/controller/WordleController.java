@@ -8,7 +8,6 @@ import java.lang.Integer;
 
 public class WordleController {
 
-    protected DictionaryLoader dictionary;
     protected WordList wordList;
     protected HiddenWord hiddenWord;
     protected Game game;
@@ -18,9 +17,8 @@ public class WordleController {
     protected EndGameUserInterface endgameUi;
     protected WordNotExistUserInterface wordNotExistUi;
 
-    public WordleController(DictionaryLoader dictionary, WordList wordList, WordleUserInterface ui, Streak streak,
+    public WordleController(WordList wordList, WordleUserInterface ui, Streak streak,
             MainMenuInterface menuUi, EndGameUserInterface endgameUi, WordNotExistUserInterface wordNotExistUi) {
-        this.dictionary = dictionary;
         this.wordList = wordList;
         this.menuUi = menuUi;
         this.streak = streak;
@@ -29,14 +27,14 @@ public class WordleController {
         this.endgameUi = endgameUi;
         this.wordNotExistUi = wordNotExistUi;
 
-        System.out.println("WordleController constructor");
+        //System.out.println("WordleController constructor");
 
     }
 
     public void onPlay(int round) {
         this.hiddenWord = new HiddenWord(wordList.getWordRandomly());
         game = new Game(round);
-        System.out.println("This starts the game, controlling the entire flow, grabbing the word from wordList, etc.");
+        //System.out.println("This starts the game, controlling the entire flow, grabbing the word from wordList, etc.");
     }
 
     public void onReplay() {

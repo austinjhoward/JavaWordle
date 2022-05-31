@@ -24,7 +24,7 @@ public class DictionaryLoader
         {
                 words.add(line);
         }
-            System.out.println("checkPositions called");
+            //System.out.println("checkPositions called");
             return words;
         }
 }
